@@ -1,24 +1,39 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Task Master</title>
+<title>Quote Giver</title>
 {% endblock %}
 
 {% block body %}
 <div class="quote">
-    <h1 style = "text-align: center">Task Master</h1>
+    <h1 style = "text-align: center">Quote Giver</h1>
     <table>
         <tr>
             <th>Quote</th>
             <th>Author</th>
         </tr>
-        {% for quote in [quote] %}
+        <!-- {% for quote in [random_quote_data] %} -->
             <tr>
-                <td>{{ quote_data.content }}</td>
-                <td> - {{ quote_data.author }}</td>
+                <td>{{ random_quote_data.quote }}</td>
+                <td> - {{ random_quote_data.author }}</td>
             </tr>
-        {% endfor %}
+        <!-- {% endfor %} -->
     </table>
+<br>
+    <form action = "/" method = "POST">
+        <input type="submit" name="submit_button" value="1 Star">
+        <input type="submit" name="submit_button" value="2 Star">
+        <input type="submit" name="submit_button" value="3 Star">
+    </form>
+    <form action = "/recommended_quote/{{random_quote_data.quote_id}}/4/">
+        <input type="submit" name="submit_button" value="4 Star">
+    </form>
+    <form action = "/recommended_quote/{{random_quote_data.quote_id}}/5/">
+        <input type="submit" name="submit_button" value="5 Star">
+    </form>
 </div>
 
 {% endblock %}
+
+<!-- <a name="submit_button" href='/recommended_quote/{{random_quote_data._id}}'>That other page</a>
+<a name="submit_button" href='/recommended_quote/{{random_quote_data._id}}'>That other page</a> -->
