@@ -1,20 +1,48 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: lightblue;
+    /* background-image: url('../img/typewriter-2.jpeg'); */
+    /* background-color: lightblue; */
+    /* background-color: #FAF9F6; */
 }
 
-.content {
-    margin: 0 auto;
-    width: 400px;
+.title-header {
+    border: 2px solid black;
+    /* color: #FAF9F6; */
+    height: 300px;
+    background-image: url('../img/typewriter-2.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-size: 100% 100%;
 }
 
-.right_hand_floating { 
-    position: relative;
+.float-container {
+    border: None;
+    padding: 20px;
+}
+
+.float-child-1 {
+    width: 42%;
+    margin: 10px;
+    float: left;
+    padding: 20px;
+    border: 2px solid black;
+} 
+.float-child-2 {
+    width: 42%;
+    margin: 10px;
     float: right;
+    padding: 20px;
+    border: 2px solid black;
+} 
+
+.quote-history {
+    border: 2px solid black;
 }
 
-
+.stars {
+    color: rgb(217, 167, 15);
+}
 
 form {
     margin-top: 20px;

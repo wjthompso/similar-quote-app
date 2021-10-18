@@ -5,37 +5,46 @@
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1 style = "text-align: center">You rated the following quote {{ user_rating }} stars at {{ time_of_rating }}.</h1>
-    <h4 style = "text-align: center">"{{ user_selected_quote.quote }}"" - {{ user_selected_quote.author }}</h3>
-    <h3 style = "text-align: center">We found a similar quote. How would you rate it?</h3>
-    <h5 style = "text-align: center">"{{ similar_quote.quote }}"" - {{ similar_quote.author }}</h3>
+<div class = "float-container">
+    <div class="float-child-1">
+        <div class="left-hand-column">
+            <h2 style = "text-align: center">"{{ user_selected_quote.quote }}"" - {{ user_selected_quote.author }}</h2>
+            <h3 style = "text-align: center">You rated the this quote <span class= "stars">{{ user_rating }} stars</span> at {{ time_of_rating }}.</h3>
+            <h3 style = "text-align: center">We found a similar quote. How would you rate it?</h3>
+            <h5 style = "text-align: center">"{{ similar_quote.quote }}"" - {{ similar_quote.author }}</h3>
 
-    <form action = "/" method = "POST">
-        <input type="submit" name="submit_button" value="1 Star">
-        <input type="submit" name="submit_button" value="2 Star">
-        <input type="submit" name="submit_button" value="3 Star">
-    </form>
-    <form action = "/recommended_quote/{{similar_quote.quote_id}}/4/">
-        <input type="submit" name="submit_button" value="4 Star">
-    </form>
-    <form action = "/recommended_quote/{{similar_quote.quote_id}}/5/">
-        <input type="submit" name="submit_button" value="5 Star">
-    </form>
-    <br>
-    <br>
+            <form action = "/" method = "POST">
+                <input type="submit" name="submit_button" value="&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
+            </form>
+            <form action = "/recommended_quote/{{similar_quote.quote_id}}/4/">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
+            </form>
+            <form action = "/recommended_quote/{{similar_quote.quote_id}}/5/">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088">
+            </form>
+            <br><br>
 
-    <form action = "/" method = "GET">
-        <input type="submit" name="submit_button" value="Go back">
-    </form>
-    <br>
-    <br>
-</div>
-<div class="right_hand_floating"></div>
-    {% for quote_i in  all_user_selected_quotes%}
-    <p>{{quote_i.quote}} - {{quote_i.author}}</p>
-    <br>
-    {% endfor %}
+            <form action = "/" method = "GET">
+                <input type="submit" name="submit_button" value="Start over">
+            </form>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="float-child-2">
+        <div class="right-hand-column">
+            <h1 class = "quote-history" style = "text-align: center">Quote History</h1>
+            {% for quote_i in  all_user_selected_quotes%}
+            <div class = "historic-elements">
+                <p>You gave the following quote <span class= "stars">{{ quote_i.user_rating }} stars</span> on <span class= "quote-history-time">{{ quote_i.formatted_time }}</span></p>
+                <p>{{quote_i.quote}} - {{quote_i.author}}</p>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
