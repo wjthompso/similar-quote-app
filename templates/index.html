@@ -6,37 +6,55 @@
 {% endblock %}
 
 {% block body %}
-<div class="quote">
+<div class="quote-container">
     <div class = "title-header">
-        <h1 style = "text-align: center">Random Quote Generator</h1>
+        <h1>Similar Quotes</h1>
     </div>
-    <table>
-        <tr>
-            <th>Quote</th>
-            <th>Author</th>
-        </tr>
-        <!-- {% for quote in [random_quote_data] %} -->
-            <tr>
-                <td>{{ random_quote_data.quote }}</td>
-                <td> - {{ random_quote_data.author }}</td>
-            </tr>
-        <!-- {% endfor %} -->
-    </table>
+    <div class = "explainer">
+        <h3>The following quote was randomly pulled from https://github.com/lukePeavey/quotable.<br><br>
+
+            Please rate the following quote. If you rate it 3 or less stars, we'll give you a new one.
+            If you rate it 4 or more stars, we'll give you a quote similar to the quote you chose.
+        </h3>
+    </div>
+    <br>
+    <br>
+    <h1 class = "quote">"{{ random_quote_data.quote }}"- {{ random_quote_data.author }}
+        <br>
+    </h1>
 <br>
-    <form action = "/" method = "POST">
-        <input type="submit" name="submit_button" value="&#11088">
-        <input type="submit" name="submit_button" value="&#11088&#11088">
-        <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
-    </form>
-    <form action = "/recommended_quote/{{random_quote_data.quote_id}}/4/">
-        <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
-    </form>
-    <form action = "/recommended_quote/{{random_quote_data.quote_id}}/5/">
-        <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088">
-    </form>
+        <form action = "/recommended_quote/{{random_quote_data.quote_id}}/False/">
+            <div class = "rating-box-container">
+                <input type="submit" name="submit_button" value="&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088">
+                <br>
+                <br>
+                <div class = "btn-container">
+                    <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
+                </div>
+            </div>
+        </form>
+        
+
+    <!-- <div class = "explainer">
+        <h3>There are a total of 1,885 quotes in the database. The similarity between the quotes was
+            calculated using the Natural Language Processing model BERT (Bidirectional Encoder Representations from Transformers).<br><br>
+            Although BERT isn't perfect, it's pretty good!
+        </h3>
+    </div> -->
 </div>
 
 {% endblock %}
 
 <!-- <a name="submit_button" href='/recommended_quote/{{random_quote_data._id}}'>That other page</a>
 <a name="submit_button" href='/recommended_quote/{{random_quote_data._id}}'>That other page</a> -->
+
+<div class = "explainer">
+    <h3>The following quote was randomly pulled from https://github.com/lukePeavey/quotable.<br><br>
+        There are a total of 1,885 quotes in the database. The similarity between the quotes was
+        calculated using a Natural Language Processing algorithm titled BERT (Bidirectional Encoder Representations from Transformers).
+    </h3>
+</div>

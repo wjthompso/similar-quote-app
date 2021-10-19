@@ -46,7 +46,7 @@ class QuoteHistory(db.Model):
         return '<Quote %r>' % self.id
 
 # This sentence similarity matrix was calculated using BERT (Bidirectional Encoder Representations from Transformers), state of the art NLP!
-# This model was presented in a October 2018 paper, it's a very new model!
+# The BERT model was presented recently in a October 2018 paper. Although too slow to run in the app, the results are good!
 # Link to paper: https://arxiv.org/abs/1810.04805
 # Link to medium article with Python code to generate a single row in the matrix: https://towardsdatascience.com/bert-for-measuring-text-similarity-eec91c6bf9e1
 sentence_similarity_matrix = pd.read_csv("sentence_similarity_matrix.csv", index_col = "index")
@@ -89,43 +89,59 @@ def front_page_quote():
 
         return render_template('index.html', random_quote_data=random_quote_data)
 
-@app.route('/recommended_quote/<id>/<rating>/', methods=['GET', 'POST'])
-def recommended_quote(id, rating):
-    if request.method == 'POST':
+@app.route('/recommended_quote/<id>/<different>/', methods=['GET', 'POST'])
+def recommended_quote(id, different):
+    try:
+        rating = str(len(request.url.split("?submit_button=")[1]))
+        print(request.url)
+        print(rating)
+    except:
+        rating = None
+        pass
+    if rating in ["1", "2", "3"] or request.method == 'POST':
         return redirect('/')
     else:
-        try:
-            # We query the user selected quote and convert it to dictionaries to be used by jinja
-            user_selected_quote = Quote.query.filter_by(quote_id = id).first().__dict__
-            all_quotes = [Quote.__dict__ for Quote in Quote.query.all()]
-            similar_quote = find_similar_quote(user_selected_quote, all_quote_ids)     
+        # We query the user selected quote and convert it to dictionaries to be used by jinja
+        user_selected_quote = Quote.query.filter_by(quote_id = id).first().__dict__
+        # all_quotes = [Quote.__dict__ for Quote in Quote.query.all()] #May be unnecessary
+        if different == "False":
+            different = False
+            recommended_quote = find_similar_quote(user_selected_quote, all_quote_ids)
+        else:
+            different = True
+            recommended_quote = find_different_quote(user_selected_quote, all_quote_ids)
 
-            user_quote_history_entry = QuoteHistory(
-                                        quote_id = user_selected_quote['quote_id'],
-                                        author = user_selected_quote['author'],
-                                        quote = user_selected_quote['quote'], #No empty quotes
-                                        user_rating = rating,
-                                        time_of_rating = datetime.utcnow(),
-                                        tags = user_selected_quote['tags']
-                                        )
+        sim_or_diff = "different" if different else "similar"
 
-            # Check if the user_quote_history_entry is already in the database, else add and commit
-            if not QuoteHistory.query.filter_by(quote_id = id).first():
-                db.session.add(user_quote_history_entry)
-                db.session.commit()
+        user_quote_history_entry = QuoteHistory(
+                                    quote_id = user_selected_quote['quote_id'],
+                                    author = user_selected_quote['author'],
+                                    quote = user_selected_quote['quote'], #No empty quotes
+                                    user_rating = "No rating" if rating == "Norating" else rating,
+                                    time_of_rating = datetime.utcnow(),
+                                    tags = user_selected_quote['tags']
+                                    )
 
-            time_of_rating = user_quote_history_entry.time_of_rating.strftime("%I:%M %p (UTC)")
+        # Only add the user_quote_history_entry to the database if it isn't already in there
+        # If we're giving a different quote, we didn't receive a legitimate rating.
+        if not QuoteHistory.query.filter_by(quote_id = id).first():
+            db.session.add(user_quote_history_entry)
+            db.session.commit()
 
-            all_user_selected_quotes = format_times([user_history.__dict__ for user_history in QuoteHistory.query.all()])
+        time_of_rating = user_quote_history_entry.time_of_rating.strftime("%I:%M %p (UTC)")
 
-            return render_template('recommended_quote.html', user_selected_quote = user_selected_quote,
-                                                            user_rating = rating,
-                                                            time_of_rating = time_of_rating,
-                                                            similar_quote = similar_quote,
-                                                            all_user_selected_quotes = all_user_selected_quotes)
-        except Exception as e:
-            print("There was an issue")
-            print(e)
+        all_user_selected_quotes = format_times([user_history.__dict__ for user_history in QuoteHistory.query.all()])
+
+        return render_template('recommended_quote.html', user_selected_quote = user_selected_quote,
+                                                        user_rating = "no rating" if rating == "norating" else rating,
+                                                        time_of_rating = time_of_rating,
+                                                        recommended_quote = recommended_quote,
+                                                        sim_or_diff = "different" if different else "similar",
+                                                        all_user_selected_quotes = all_user_selected_quotes
+                                                        )
+        # except Exception as e:
+        #     print("There was an issue")
+        #     print(e)
 
 
 if __name__ == '__main__':

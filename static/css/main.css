@@ -7,17 +7,57 @@ body, html {
 }
 
 .title-header {
+    color: rgb(217, 210, 210);
     border: 2px solid black;
+    text-align: center;
     /* color: #FAF9F6; */
-    height: 300px;
-    background-image: url('../img/typewriter-2.jpg');
-    background-repeat: no-repeat;
+    height: 60px;
+    padding: 1%;
+    background-color: rgb(51, 5, 91);
+    /* background-image: url('../img/typewriter.jpeg'); */
+    object-fit: cover;
+    width: 100%;
+    /* background-repeat: no-repeat; */
     /* background-size: cover; */
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
 }
+
+.explainer {
+    padding: 1px;
+    color: rgb(62, 62, 62);
+    background-color: lightgray;
+}
+
+.quote-container {
+    color: rgb(237, 201, 90);
+    background-image: url('../img/redwood-forest.jpeg');
+    height: 1000px;
+    /* background-size: 100% 100%; */
+    background-size: cover;
+}
+
+.quote {
+    /* color: rgb(234, 209, 135); */
+    color: rgb(236, 214, 149);
+
+    font-size: 35px;
+    margin: 5%;
+    font-style: italic;
+}
+
+/* .rating-box-conatiner {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+} */
 
 .float-container {
     border: None;
+    background-image: url('../img/redwood-forest.jpeg');
+    height: 1000px;
+    background-size: cover;
     padding: 20px;
 }
 
@@ -26,8 +66,39 @@ body, html {
     margin: 10px;
     float: left;
     padding: 20px;
+    background-color:rgb(217, 210, 210);
     border: 2px solid black;
 } 
+
+.float-child-2 {
+    width: 42%;
+    margin: 10px;
+    float: right;
+    padding: 20px;
+    background-color:rgb(217, 210, 210);
+    border: 2px solid black;
+} 
+
+.user-selected-quote {
+    text-align: center;
+    font-style: italic;
+    color: rgb(88, 88, 88);
+}
+
+.quote-rating {
+    text-align: left
+}
+
+.recommendation-description {
+    text-align: left
+}
+
+.recommendation-quote {
+    text-align: center;
+    font-style: italic;
+    color: rgb(88, 88, 88);
+}
+
 .float-child-2 {
     width: 42%;
     margin: 10px;
@@ -37,40 +108,78 @@ body, html {
 } 
 
 .quote-history {
+    font-family: serif;
+    font-size: 30px;
     border: 2px solid black;
+    padding: 10px;
+}
+
+.quote-history-item {
+    text-align: center;
+    font-style: italic;
+    color: rgb(62, 62, 62);
 }
 
 .stars {
     color: rgb(217, 167, 15);
 }
 
-form {
+/* form {
     margin-top: 20px;
     display: inline;
-}
-/* 
-table, td, th {
-    border: 1px solid rgb(88, 72, 72);
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    height: 30px;
-}
-
-td {
-    text-align: center;
-    padding: 5px;
-}
-
-.form {
-    margin-top: 20px;
-}
-
-#content {
-    width: 70%;
 } */
+
+.star-ratings-container {
+    text-align: center;
+}
+
+/* .star-ratings {
+    text-align: center;
+
+} */
+
+.ratings-box-container {
+    /* display: inline; */
+    text-align: center;
+}
+
+.star-rating-container {
+    text-align: left;
+}
+
+.btn-container {
+}
+
+.btn {
+    /* color:rgb(237, 201, 90); */
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 40px;
+}
+
+.fa-star {
+    color: rgb(220, 193, 55);
+    height: 200px;
+    width: 200px;
+}
+
+form {
+    margin-top: 20px;
+    /* text-align: center; */
+    display: table;
+    margin: 0 auto; 
+    /* width:200px; */
+}
+
+input {
+    /* display: table-cell; */
+    height: 100%;
+    /* width: 100%; */
+    background-color:rgb(93, 93, 93);
+    border-radius: 8px;
+    -moz-border-radius: 0px;
+}

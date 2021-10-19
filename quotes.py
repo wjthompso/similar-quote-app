@@ -48,23 +48,24 @@ def find_quote_by_id(id):
     quote_dict = {quote["_id"]: quote for quote in all_quotes}
     return quote_dict[id]
 
-def find_nth_largest_number(nth, unsorted_list):
-    """Find the second largest number means nth = 2
-    Find the third largest number means nth = 3, and so on."""
+def find_nth_extrema(nth, unsorted_list, max = True):
+    """Find the second largest number means nth = 2, max = True
+    Find the third largest number means nth = 3, max = True.
+    Find the second smallest number means nth = 2, max = False, and so on"""
     unsorted_list = unsorted_list
-    sorted_list = sorted(list(unsorted_list), reverse = True) # Starts from largest to smallest
-    return unsorted_list.index(sorted_list[nth - 1])
+    if max:
+        sorted_list = sorted(list(unsorted_list), reverse = True) # Starts from largest to smallest
+        return unsorted_list.index(sorted_list[nth - 1])
+    if not max:
+        sorted_list = sorted(list(unsorted_list), reverse = False) # Starts from smallest to largest
+        return unsorted_list.index(sorted_list[nth - 1])
 
 
 def find_similar_quote(quote, all_quote_ids):
     # "Takes a flattened list of dictionaries containing quote data"
-    # print()
-    # print()
-    # print("Here's the quote", quote)
-    # print()
-    # print()
+
     quote_similarities = quote["quote_similarities"][quote["quote_id"]]
-    idx_max = find_nth_largest_number(1, quote_similarities) #index of max value, the most similar quote
+    idx_max = find_nth_extrema(1, quote_similarities) #index of max value, the most similar quote
     quote_id = all_quote_ids[idx_max] #The quote_id using the index of the maximum similarity score
     nth = 1
     while True:
@@ -72,19 +73,23 @@ def find_similar_quote(quote, all_quote_ids):
             return Quote.query.filter_by(quote_id = quote_id).first().__dict__
         else: #You mean it's already in our quote history? Get another quite, just slightly less similar, but still similar.
             nth += 1
-            nth_idx_max = find_nth_largest_number(nth, quote_similarities)
+            nth_idx_max = find_nth_extrema(nth, quote_similarities)
             quote_id = all_quote_ids[nth_idx_max]
-        
 
-# def find_similar_quote(quote, all_quotes):
-#     "Takes a flattened list of dictionaries containing quote data"
-#     given_quote_tags = set(quote['tags'])
-#     for quote_candidate in all_quotes:
-#         quote_candidate_tags = set(quote_candidate['tags'])
-#         if given_quote_tags.issubset(quote_candidate_tags) and quote['quote_id'] != quote_candidate["quote_id"]:
-#             if QuoteHistory.query.filter_by(quote_id = quote_candidate["quote_id"]).count() == 0:
-#                 return quote_candidate
-#     return None
+def find_different_quote(quote, all_quote_ids):
+    # "Takes a flattened list of dictionaries containing quote data"
+
+    quote_similarities = quote["quote_similarities"][quote["quote_id"]]
+    nth = 1
+    idx_max = find_nth_extrema(nth, quote_similarities, max = False) #index of max value, the most similar quote
+    quote_id = all_quote_ids[idx_max] #The quote_id using the index of the maximum similarity score    
+    while True:
+        if QuoteHistory.query.filter_by(quote_id = quote_id).count() == 0: #Is the quote in our history? No? Carry on
+            return Quote.query.filter_by(quote_id = quote_id).first().__dict__
+        else: #You mean it's already in our quote history? Get another quite, just slightly less similar, but still similar.
+            nth += 1
+            nth_idx_max = find_nth_extrema(nth, quote_similarities, max = False)
+            quote_id = all_quote_ids[nth_idx_max]
 
 def format_times(all_quotes):
     for idx, quote in enumerate(all_quotes):
