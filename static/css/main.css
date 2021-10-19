@@ -1,43 +1,37 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    /* background-image: url('../img/typewriter-2.jpeg'); */
-    /* background-color: lightblue; */
-    /* background-color: #FAF9F6; */
 }
 
 .title-header {
     color: rgb(217, 210, 210);
     border: 2px solid black;
     text-align: center;
-    /* color: #FAF9F6; */
     height: 60px;
     padding: 1%;
     background-color: rgb(51, 5, 91);
-    /* background-image: url('../img/typewriter.jpeg'); */
     object-fit: cover;
     width: 100%;
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-size: 100% 100%; */
 }
 
 .explainer {
-    padding: 1px;
+    padding: 0.2%;
     color: rgb(62, 62, 62);
     background-color: lightgray;
 }
+
+/* .explainer-text {
+    margin: 20px;
+} */
 
 .quote-container {
     color: rgb(237, 201, 90);
     background-image: url('../img/redwood-forest.jpeg');
     height: 1000px;
-    /* background-size: 100% 100%; */
     background-size: cover;
 }
 
 .quote {
-    /* color: rgb(234, 209, 135); */
     color: rgb(236, 214, 149);
 
     font-size: 35px;
@@ -58,7 +52,7 @@ body, html {
     margin: 10px;
     float: left;
     padding: 20px;
-    background-color:rgb(217, 210, 210);
+    background-color:rgb(217, 210, 210, 0.8);
     border: 2px solid black;
 } 
 
@@ -67,7 +61,8 @@ body, html {
     margin: 10px;
     float: right;
     padding: 20px;
-    background-color:rgb(217, 210, 210);
+    background-color:rgb(217, 210, 210, 0.8);
+    /* opacity: 0.78; */
     border: 2px solid black;
 } 
 
@@ -100,7 +95,7 @@ body, html {
 } 
 
 .quote-history {
-    font-family: serif;
+    /* font-family: serif; */
     font-size: 30px;
     border: 2px solid black;
     padding: 10px;
@@ -113,17 +108,10 @@ body, html {
 }
 
 .stars {
-    color: rgb(217, 167, 15);
+    color: rgb(164, 126, 11);
+    color: rgb(220, 193, 55);
+    /* color: rgb(25, 86, 107); */
 }
-
-.star-ratings-container {
-    text-align: center;
-}
-
-/* .ratings-box-container {
-    display: inline;
-    text-align: center;
-} */
 
 .star-rating-container {
     text-align: left;
@@ -133,6 +121,7 @@ body, html {
     /* color:rgb(237, 201, 90); */
     background-color: transparent;
     background-repeat: no-repeat;
+    opacity: 1;
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -151,14 +140,17 @@ body, html {
 }
 
 .fa-star {
+    opacity: 1;
     color: rgb(220, 193, 55);
 }
 
 .fa-star:hover {
+    opacity: 1;
     color: rgb(164, 142, 33);
 }
 
 .form-stars {
+    opacity: 1;
     text-align: center;
     display: inline;
     margin: 0 auto; 

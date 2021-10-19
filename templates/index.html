@@ -11,10 +11,8 @@
         <h1>Similar Quote Generator</h1>
     </div>
     <div class = "explainer">
-        <h3>The following quote was randomly pulled from https://github.com/lukePeavey/quotable.<br><br>
-
-            Please rate the following quote. If you rate it 3 or less stars, we'll give you a new one.
-            If you rate it 4 or more stars, we'll give you a quote similar to the quote you chose.
+        <h3 class = "explainer-text">Please rate the following random quote. <br><br>
+            If you rate the quote with 4 or more stars, we'll find a similar quote.
         </h3>
     </div>
     <br>
@@ -25,11 +23,6 @@
 <br>
         <form class = "form-stars" action = "/recommended_quote/{{random_quote_data.quote_id}}/False/">
             <div class = "rating-box-container">
-                <!-- <input type="submit" name="submit_button" value="&#11088">
-                <input type="submit" name="submit_button" value="&#11088&#11088">
-                <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
-                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
-                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088"> -->
                 <div class = "btn-container">
                     <button type = "submit" name = "submit_button" class="btn" value = "&#11088"><i class="fa fa-star"></i></button>
                     <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088"><i class="fa fa-star"></i></button>
@@ -39,14 +32,6 @@
                 </div>
             </div>
         </form>
-        
-
-    <!-- <div class = "explainer">
-        <h3>There are a total of 1,885 quotes in the database. The similarity between the quotes was
-            calculated using the Natural Language Processing model BERT (Bidirectional Encoder Representations from Transformers).<br><br>
-            Although BERT isn't perfect, it's pretty good!
-        </h3>
-    </div> -->
 </div>
 
 {% endblock %}
