@@ -18,22 +18,24 @@
             <h3 class = "recommendation-quote">"{{ recommended_quote.quote }}" - {{ recommended_quote.author }}</h3>
 
             </div>
-                <form action = "/recommended_quote/{{recommended_quote.quote_id}}/False/">
-                    <div class = "star-rating-container"></div>
-                        <input type="submit" name="submit_button" value="&#11088">
-                        <input type="submit" name="submit_button" value="&#11088&#11088">
-                        <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
-                        <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
-                        <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088">
-                    </form>
+            <form class = "form-stars-b" action = "/recommended_quote/{{recommended_quote.quote_id}}/False/">
+                <div class = "rating-box-container">
+                    <div class = "btn-container">
+                        <button type = "submit" name = "submit_button" class="btn" value = "&#11088"><i class="fa fa-star"></i></button>
+                        <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088"><i class="fa fa-star"></i></button>
+                        <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
+                        <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
+                        <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
+                    </div>
+                </div>
+            </form>
                 <br>
 
-                <form action = "/" method = "GET">
-                    <input type="submit" name="submit_button" value="Start over">
+                <form class = "form-start-over" action = "/" method = "GET">
+                    <button type = "submit" name = "submit_button" class="btn-start-over" value = "&#11088">Random New Quote</button>
                 </form>
-                <br>
-                <form action = "/recommended_quote/{{recommended_quote.quote_id}}/True/" method = "GET">
-                    <input type="submit" name="submit_button" value="Different Quote">
+                <form class = "form-different-quote" action = "/recommended_quote/{{recommended_quote.quote_id}}/True/" method = "GET">
+                    <button type = "submit" name = "submit_button" class="btn-different-quote" value = "&#11088&#11088&#11088&#11088&#11088">Different Quote From Above</button>
                 </form>
         </div>
     <div class="float-child-2">

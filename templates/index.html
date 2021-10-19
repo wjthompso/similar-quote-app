@@ -8,7 +8,7 @@
 {% block body %}
 <div class="quote-container">
     <div class = "title-header">
-        <h1>Similar Quotes</h1>
+        <h1>Similar Quote Generator</h1>
     </div>
     <div class = "explainer">
         <h3>The following quote was randomly pulled from https://github.com/lukePeavey/quotable.<br><br>
@@ -23,16 +23,18 @@
         <br>
     </h1>
 <br>
-        <form action = "/recommended_quote/{{random_quote_data.quote_id}}/False/">
+        <form class = "form-stars" action = "/recommended_quote/{{random_quote_data.quote_id}}/False/">
             <div class = "rating-box-container">
-                <input type="submit" name="submit_button" value="&#11088">
+                <!-- <input type="submit" name="submit_button" value="&#11088">
                 <input type="submit" name="submit_button" value="&#11088&#11088">
                 <input type="submit" name="submit_button" value="&#11088&#11088&#11088">
                 <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088">
-                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088">
-                <br>
-                <br>
+                <input type="submit" name="submit_button" value="&#11088&#11088&#11088&#11088&#11088"> -->
                 <div class = "btn-container">
+                    <button type = "submit" name = "submit_button" class="btn" value = "&#11088"><i class="fa fa-star"></i></button>
+                    <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088"><i class="fa fa-star"></i></button>
+                    <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
+                    <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
                     <button type = "submit" name = "submit_button" class="btn" value = "&#11088&#11088&#11088&#11088&#11088"><i class="fa fa-star"></i></button>
                 </div>
             </div>

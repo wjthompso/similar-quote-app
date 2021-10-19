@@ -45,14 +45,6 @@ body, html {
     font-style: italic;
 }
 
-/* .rating-box-conatiner {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-} */
-
 .float-container {
     border: None;
     background-image: url('../img/redwood-forest.jpeg');
@@ -124,30 +116,17 @@ body, html {
     color: rgb(217, 167, 15);
 }
 
-/* form {
-    margin-top: 20px;
-    display: inline;
-} */
-
 .star-ratings-container {
     text-align: center;
 }
 
-/* .star-ratings {
+/* .ratings-box-container {
+    display: inline;
     text-align: center;
-
 } */
-
-.ratings-box-container {
-    /* display: inline; */
-    text-align: center;
-}
 
 .star-rating-container {
     text-align: left;
-}
-
-.btn-container {
 }
 
 .btn {
@@ -161,25 +140,50 @@ body, html {
     font-size: 40px;
 }
 
-.fa-star {
-    color: rgb(220, 193, 55);
-    height: 200px;
-    width: 200px;
+.btn-start-over {
+    font-style: bold;
+    cursor: pointer;
 }
 
-form {
-    margin-top: 20px;
-    /* text-align: center; */
-    display: table;
+.btn-different-quote {
+    font-style: bold;
+    cursor: pointer;
+}
+
+.fa-star {
+    color: rgb(220, 193, 55);
+}
+
+.fa-star:hover {
+    color: rgb(164, 142, 33);
+}
+
+.form-stars {
+    text-align: center;
+    display: inline;
     margin: 0 auto; 
-    /* width:200px; */
+}
+
+.form-stars-b {
+    text-align: center;
+    display: inline;
+    margin: 0 auto; 
+}
+
+.form-start-over {
+    display: inline;
+}
+
+.form-different-quote {
+    display: inline;
 }
 
 input {
     /* display: table-cell; */
     height: 100%;
     /* width: 100%; */
-    background-color:rgb(93, 93, 93);
+    display: inline;
+    background-color:rgb(202, 202, 202);
     border-radius: 8px;
     -moz-border-radius: 0px;
 }
