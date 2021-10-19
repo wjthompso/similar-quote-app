@@ -20,10 +20,6 @@ body, html {
     background-color: lightgray;
 }
 
-/* .explainer-text {
-    margin: 20px;
-} */
-
 .quote-container {
     color: rgb(237, 201, 90);
     background-image: url('../img/redwood-forest.jpeg');
@@ -62,7 +58,6 @@ body, html {
     float: right;
     padding: 20px;
     background-color:rgb(217, 210, 210, 0.8);
-    /* opacity: 0.78; */
     border: 2px solid black;
 } 
 
@@ -95,7 +90,6 @@ body, html {
 } 
 
 .quote-history {
-    /* font-family: serif; */
     font-size: 30px;
     border: 2px solid black;
     padding: 10px;
@@ -108,9 +102,7 @@ body, html {
 }
 
 .stars {
-    color: rgb(164, 126, 11);
     color: rgb(220, 193, 55);
-    /* color: rgb(25, 86, 107); */
 }
 
 .star-rating-container {
@@ -118,7 +110,6 @@ body, html {
 }
 
 .btn {
-    /* color:rgb(237, 201, 90); */
     background-color: transparent;
     background-repeat: no-repeat;
     opacity: 1;
@@ -171,9 +162,7 @@ body, html {
 }
 
 input {
-    /* display: table-cell; */
     height: 100%;
-    /* width: 100%; */
     display: inline;
     background-color:rgb(202, 202, 202);
     border-radius: 8px;

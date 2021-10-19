@@ -20,29 +20,11 @@ async def get_all_quote_responses():
         return responses
 
 def get_all_quotes(): 
-    # TODO: Clean this up!
-    start = time.time()
-    # This code is identical to the following code
-    # responses = get_all_pages_of_quotes()
     results = asyncio.run(get_all_quote_responses())
     json_results = [asyncio.run(result.json()) for result in results]
-    # quotes = [*result['results'] for result in json_results]
     quotes = [quote for sublist in json_results for quote in sublist["results"]]
-
-    # Older example with the event_loop
-    # loop = asyncio.get_event_loop()
-    # results = loop.run_until_complete(get_symbols())
-    # loop.close()
-
-    # end = time.time()
-    # total_time = round((end - start), 2)
-    # print(f"It took us {total_time} seconds to get our results")
-    # print(len(results))
-
     return quotes
-
-# def add_all_quotes
-
+    
 def find_quote_by_id(id):
     all_quotes = get_all_quotes()
     quote_dict = {quote["_id"]: quote for quote in all_quotes}
@@ -61,34 +43,19 @@ def find_nth_extrema(nth, unsorted_list, max = True):
         return unsorted_list.index(sorted_list[nth - 1])
 
 
-def find_similar_quote(quote, all_quote_ids):
-    # "Takes a flattened list of dictionaries containing quote data"
+def find_another_quote(quote, all_quote_ids, different = False):
+    "Takes a flattened list of dictionaries containing quote data"
 
     quote_similarities = quote["quote_similarities"][quote["quote_id"]]
-    idx_max = find_nth_extrema(1, quote_similarities) #index of max value, the most similar quote
-    quote_id = all_quote_ids[idx_max] #The quote_id using the index of the maximum similarity score
+    idx_max = find_nth_extrema(1, quote_similarities, max = not different) #index of max or min value, the most similar/different quote
+    quote_id = all_quote_ids[idx_max] #The quote_id using the index of the maximum/minimum similarity score
     nth = 1
     while True:
         if QuoteHistory.query.filter_by(quote_id = quote_id).count() == 0: #Is the quote in our history? No? Carry on
             return Quote.query.filter_by(quote_id = quote_id).first().__dict__
-        else: #You mean it's already in our quote history? Get another quite, just slightly less similar, but still similar.
+        else: #The most similar quote is already in the user's quote history: Get another quote, but slightly less familiar.
             nth += 1
             nth_idx_max = find_nth_extrema(nth, quote_similarities)
-            quote_id = all_quote_ids[nth_idx_max]
-
-def find_different_quote(quote, all_quote_ids):
-    # "Takes a flattened list of dictionaries containing quote data"
-
-    quote_similarities = quote["quote_similarities"][quote["quote_id"]]
-    nth = 1
-    idx_max = find_nth_extrema(nth, quote_similarities, max = False) #index of max value, the most similar quote
-    quote_id = all_quote_ids[idx_max] #The quote_id using the index of the maximum similarity score    
-    while True:
-        if QuoteHistory.query.filter_by(quote_id = quote_id).count() == 0: #Is the quote in our history? No? Carry on
-            return Quote.query.filter_by(quote_id = quote_id).first().__dict__
-        else: #You mean it's already in our quote history? Get another quite, just slightly less similar, but still similar.
-            nth += 1
-            nth_idx_max = find_nth_extrema(nth, quote_similarities, max = False)
             quote_id = all_quote_ids[nth_idx_max]
 
 def format_times(all_quotes):
@@ -100,8 +67,3 @@ def format_times(all_quotes):
 if __name__ == "__main__":
     all_quotes = {"all_content": get_all_quotes()}
     df = pd.read_csv("sentence_similarity_matrix.csv", index_col = "index")
-    
-    with open('all_quotes.json', 'w', encoding ='utf8') as json_file: 
-        json.dump(all_quotes, json_file, ensure_ascii = False) 
-        
-    print("Hey")
