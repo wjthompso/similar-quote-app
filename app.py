@@ -8,7 +8,6 @@ import json
 import pandas as pd
 import os
 import random
-from quotes import *
 
 app = Flask(__name__)
 
