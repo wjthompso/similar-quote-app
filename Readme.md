@@ -13,7 +13,7 @@ BERT is revolutionary in that it actually seems to understand the intent of a se
 # Start-up Instructions
 ## Docker
 
-Assuming you have docker installed, run the following command and then go to "localhost:8000" on your machine:
+Assuming you have docker installed, run the following command and then go to `localhost:8000` on your machine:
 
 `docker compose up`
 
