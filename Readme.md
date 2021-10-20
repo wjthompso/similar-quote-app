@@ -19,8 +19,8 @@ Assuming you have docker installed, run the following command and then go to "lo
 
 If you'd like to run the app locally, please do the following.
 
-First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`
-`pip3 install virtualenv`
+First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`:<br>
+`pip3 install virtualenv`<br>
 `virtualenv app-env`
 
 Then we had to activate our virtual environment. When active, the "(env)" can be seen next to the command line prompt. We do this so that we can work with other people. We want to make sure all of the requirements are the same for everybody.
