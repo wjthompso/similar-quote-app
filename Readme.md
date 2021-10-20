@@ -19,7 +19,8 @@ Assuming you have docker installed, run the following command and then go to "lo
 
 If you'd like to run the app locally, please do the following.
 
-First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`:<br>
+First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`:
+
 `pip3 install virtualenv`<br>
 `virtualenv app-env`
 
@@ -27,8 +28,10 @@ Then we had to activate our virtual environment. When active, the "(env)" can be
 `source app-env/bin/activate`
 
 Within that environment, install the necessary requirements.
+
 `pip3 install -r requirements.txt`
 
-After writing the .py file, various .html files, and .css file use the following command to run the local webserver. You can type `localhost:8000` to see the webpage
+After writing the .py file, various .html files, and .css file use the following command to run the local webserver. You can type `localhost:8000` to see the webpage:
+
 `python3 app.py`
 
