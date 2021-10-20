@@ -105,7 +105,7 @@ def recommended_quote(id, different):
             else:
                 different = True
             
-            # Get either a similar or different quote, given that the recommended quote is not already in the QuoteHistory
+            # Get either a similar or different quote, as long as it's not already in the QuoteHistory
             recommended_quote = find_another_quote(user_selected_quote, all_quote_ids, different = different)
 
             user_quote_history_entry = QuoteHistory(
@@ -142,4 +142,4 @@ def recommended_quote(id, different):
 if __name__ == '__main__':
     create_db_if_necessary()
     add_all_quotes_to_db(sentence_similarity_matrix)
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(host="app", port = 8000, debug=True)

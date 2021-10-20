@@ -24,3 +24,8 @@ There's sort of a back and forth communication between the Quote and QuoteHistor
 
 Seems useful
 DataResults = Data.query.filter(Data.id.in_(IDs)).all()
+
+# This sentence similarity matrix was calculated using BERT (Bidirectional Encoder Representations from Transformers), state of the art NLP!
+# The BERT model was presented recently in a October 2018 paper. Although too slow to run in the app, the results are good!
+# Link to paper: https://arxiv.org/abs/1810.04805
+# Link to medium article with Python code to generate a single row in the matrix: https://towardsdatascience.com/bert-for-measuring-text-similarity-eec91c6bf9e1
