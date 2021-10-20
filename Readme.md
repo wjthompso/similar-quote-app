@@ -13,13 +13,13 @@ BERT is revolutionary in that it actually seems to understand the intent of a se
 # Start-up Instructions
 ## Docker
 
-Assuming you have docker installed, run the following command and then go to "localhost:8000" on your machine:
+Assuming you have docker installed, run the following command and then go to `localhost:8000` on your machine:
 
 `docker compose up`
 
 ## Running the app locally
 
-If you'd like to run the app locally, please do the following.
+Assuming you don't have docker installed, here are the instructions to run everything up locally.
 
 First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`:
 
