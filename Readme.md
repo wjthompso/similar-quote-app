@@ -32,3 +32,8 @@ Within that environment, install the necessary requirements.
 After writing the .py file, various .html files, and .css file use the following command to run the local webserver. You can type `localhost:8000` to see the webpage
 `python3 app.py`
 
+# Deploying to Heroku
+
+There's an error happening here:
+
+heroku ps:scale web=1
