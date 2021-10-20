@@ -25,6 +25,7 @@ First, we had to create our virtual environment, so we have to install virtualen
 `virtualenv app-env`
 
 Then we had to activate our virtual environment. When active, the "(env)" can be seen next to the command line prompt. We do this so that we can work with other people. We want to make sure all of the requirements are the same for everybody.
+
 `source app-env/bin/activate`
 
 Within that environment, install the necessary requirements.
