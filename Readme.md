@@ -10,6 +10,10 @@ BERT is revolutionary in that it actually seems to understand the intent of a se
 * https://arxiv.org/abs/1810.04805
 * https://towardsdatascience.com/bert-for-measuring-text-similarity-eec91c6bf9e1
 
+## Link to see app deployed in Heroku
+
+https://similar-app.herokuapp.com/
+
 # Start-up Instructions
 ## Docker
 
