@@ -38,7 +38,7 @@ Within that environment, install the necessary requirements.
 
 `pip3 install -r requirements.txt`
 
-After writing the .py file, various .html files, and .css file use the following command to run the local webserver. You can type `localhost:8000` to see the webpage:
+Then, use the following command to run the local webserver. You can then type `localhost:8000` to see the webpage:
 
 `python3 app.py`
 
