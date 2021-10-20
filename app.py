@@ -209,6 +209,8 @@ if __name__ == '__main__':
     add_all_quotes_to_db(sentence_similarity_matrix)
 
     print("Hey")
+    print("hey")
+    print(("hey"))
 
     if docker:
         app.run(debug=True)
