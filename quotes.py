@@ -67,3 +67,5 @@ def format_times(all_quotes):
 if __name__ == "__main__":
     all_quotes = {"all_content": get_all_quotes()}
     df = pd.read_csv("sentence_similarity_matrix.csv", index_col = "index")
+
+

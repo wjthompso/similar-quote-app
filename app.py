@@ -143,3 +143,5 @@ if __name__ == '__main__':
     create_db_if_necessary()
     add_all_quotes_to_db(sentence_similarity_matrix)
     app.run(host="app", port = 8000, debug=True)
+
+    
