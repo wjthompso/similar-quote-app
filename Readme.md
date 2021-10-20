@@ -1,3 +1,16 @@
+# Introduction
+
+The following app gives a random quote, asks for a user rating, and then displays either another random quote given a low user rating, or finds a similar quote given a high user rating.
+
+It uses asynchronous programming to make 95 HTTP requests to get the 1,885 quotes in around a second and Flask_SQLAlchemy to manage a database with two tables: one of the all of the quotes, and the other to manage the history of quotes a user has liked. It also uses the state-of-the-art natural language processing model BERT, which is also used in Google Search engines as of 2019. Similarity scores between all of the different quotes were calculated using the `create_similarity_matrix.py`. However, since this script takes about 2-4 minutes to run, it has been pre-created and uploaded to this repo.
+
+BERT is revolutionary in that it actually seems to understand the intent of a sentence, rather than simply extracting the key word or key phrase. Here are links to the paper on BERT and the Medium article where I got the code to calculate BERT similarity scores:
+* https://arxiv.org/abs/1810.04805
+* https://towardsdatascience.com/bert-for-measuring-text-similarity-eec91c6bf9e1
+
+# Start-up Instructions
+## Docker
+
 First, we had to create our virtual environment, so we have to install
 `pip3 install virtualenv`
 `virtualenv env` "env" is the name of the environment, which is the convention, but any name can be used.

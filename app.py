@@ -140,8 +140,13 @@ def recommended_quote(id, different):
 
 
 if __name__ == '__main__':
+    docker = os.environ.get('AM_I_IN_A_DOCKER_CONTAINER', False)
+    
     create_db_if_necessary()
     add_all_quotes_to_db(sentence_similarity_matrix)
-    app.run(host="app", port = 8000, debug=True)
 
-    
+    if docker:
+        app.run(host="app", port = 8000, debug=True)
+    else:
+        app.run(host="localhost", port = 8000, debug=True)
+
