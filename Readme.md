@@ -19,7 +19,7 @@ Assuming you have docker installed, run the following command and then go to `lo
 
 ## Running the app locally
 
-If you'd like to run the app locally, please do the following.
+Assuming you don't have docker installed, here are the instructions to run everything up locally.
 
 First, we had to create our virtual environment, so we have to install virtualenv and then create the virtual environment with the name `app-env`:
 
