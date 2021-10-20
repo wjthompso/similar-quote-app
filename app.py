@@ -209,7 +209,7 @@ if __name__ == '__main__':
     add_all_quotes_to_db(sentence_similarity_matrix)
 
     if docker:
-        app.run(host="app", port = 8000, debug=True)
+        app.run(debug=True)
     else:
-        app.run(host="localhost", port = 8000, debug=True)
+        app.run(debug=True)
 
